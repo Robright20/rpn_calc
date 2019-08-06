@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 15:08:19 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/06 18:18:14 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/06 18:21:25 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		main(int ac, char **av)
 			ft_putstr("Success");
 		else
 			ft_putstr("Fail");
+		free(s);
 	}
-	free(s);
 	ft_putstr("\n");
 	return (0);
 }
