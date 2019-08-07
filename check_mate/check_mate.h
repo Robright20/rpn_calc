@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 15:10:17 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/06 18:18:24 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/07 17:28:43 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int		queen(int pos, char *s, int size);
 int		ft_strcpy(char *dst, char *src);
 char	*build(int ac, char **av);
 int		check(char *s, int len);
+int		isp(char c);
 #endif

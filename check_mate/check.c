@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 15:28:24 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/06 18:18:17 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/07 17:48:37 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int		bishop(int pos, char *s, int size)
 	down = size - (up + 1);
 	e = 0;
 	rep = 0;
-	while (++e <= up)
+	while (++e <= up && !isp(s[pos + e]) && !isp(s[pos - e]))
 		rep += pawn(pos, s, size, e);
 	e = 0;
-	while (++e <= down)
+	while (++e <= down && !isp(s[pos + e]) && !isp(s[pos - e]))
 		rep += pawn(pos, s, -size, e);
 	return (rep);
 }
@@ -60,16 +60,16 @@ int		rook(int pos, char *s, int size)
 	down = size - (up + 1);
 	e = 0;
 	rep = 0;
-	while (++e <= up)
+	while (++e <= up && !isp(s[pos - (e * (size))]))
 		rep += (s[pos - (e * (size))] == 'K');
 	e = 0;
-	while (++e <= down)
+	while ((++e <= down) && !isp(s[pos + (e * (size))]))
 		rep += (s[pos + (e * (size))] == 'K');
 	e = 0;
-	while (++e < size)
+	while (++e < size && !isp(s[pos + e]))
 		rep += (s[pos + e] == 'K');
 	e = 0;
-	while (++e < size)
+	while (++e < size && !isp(s[pos - e]))
 		rep += (s[pos - e] == 'K');
 	return (rep);
 }

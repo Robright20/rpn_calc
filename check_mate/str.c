@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 15:13:45 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/06 18:18:21 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/07 17:31:32 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,9 @@ char	*build(int ac, char **av)
 		i++;
 	}
 	return (rep);
+}
+
+int		isp(char c)
+{
+	return (c == 'P' || c == 'B' || c == 'R' || c == 'Q');
 }
