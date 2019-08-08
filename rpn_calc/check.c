@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 19:22:35 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 08:17:17 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 08:53:34 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		chk(char *s, int i, int len)
 
 	if (i >= len)
 		return (i);
-	if ((rep = isop(s, i)) > 0 && isp(s, rep))
+	if ((rep = isop(s, i)) > 0)
 	{
 		if ((rep = chk(s, rep + 1, len)) > 0 && isp(s, rep))
 				return (chk(s, rep + 1, len));
@@ -57,6 +57,6 @@ int		check(int ac, char **av)
 	if (ac != 2)
 		return (0);
 	s = build(av[1]);
-	printf("isp %d\t[%c]\t[%c]\n", isp(s, 3), s[3], s[2]);
+	printf("isp %d\t[%c]\t[%c]\n", isp(s, 1), s[1], s[2]);
 	return (chk(s, 0, ft_strlen(s)));
 }
