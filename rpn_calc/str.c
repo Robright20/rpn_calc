@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 06:06:28 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 08:17:12 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 08:33:18 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ char	*build(char *str)
 
 int		isp(char *s, int i)
 {
-	if (s[i++] == ' ')
+	if (i && s[i++] == ' ')
 		return (isnum(s, i) > i || isop(s, i) > i);
+	printf("%d\n", i);
 	return (0);
 }
