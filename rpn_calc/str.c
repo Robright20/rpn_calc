@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/08 06:06:28 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 08:37:06 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 09:25:14 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ int		ft_strlen(char *s)
 	return (i);
 }
 
-char	*build(char *str)
+char	*build(char *str, int len)
 {
-	int		len;
 	char	*s;
 	int		i;
 
-	len = ft_strlen(str);
 	if (!(s = (char *)malloc(len + 1)))
 		return (NULL);
 	s[len] = '\0';

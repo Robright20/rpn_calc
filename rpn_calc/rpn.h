@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:01:32 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 08:02:47 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 09:24:39 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 # include <stdio.h>
 
 int		check(int ac, char **av);
-void	rpn_calc(char **av);
+int		rpn_calc(char **av);
 int		isnum(char *s, int i);
-char	*build(char *s);
+char	*build(char *s, int	len);
 int		ft_strlen(char *s);
 int		isop(char *s, int i);
 int		isp(char *s, int i);

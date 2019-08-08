@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:10:46 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 08:17:14 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 09:23:53 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int		main(int ac, char **av)
 	if (check(ac, av) <= 0)
 		printf("Error");
 	else
-		rpn_calc(av);
+		printf("%d\n", rpn_calc(av));
 	return (0);
 }
