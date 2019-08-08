@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/07 19:24:02 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 23:09:13 by fokrober         ###   ########.fr       */
+/*   Created: 2019/08/09 00:42:41 by fokrober          #+#    #+#             */
+/*   Updated: 2019/08/09 00:58:08 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		ft_atoi(char *str, int i, int rep)
 	free(s);
 	return (k);
 }
+
 int		op(char c, int rep1, int rep2)
 {
 	if (c == '-')
@@ -48,7 +49,7 @@ int		calc(int rep1, char c, int rep2)
 int		rpn_calc(char *s, int i, int len, int *ret)
 {
 	int		rep;
-	
+
 	if (i >= len)
 		return (i);
 	if ((*ret = isop(s, i)) > 0)

@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 19:22:35 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 23:11:22 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/09 00:37:41 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ int		chk(char *s, int i, int len)
 
 	if (i >= len)
 		return (i);
-	if ((rep = isop(s, i)) > 0)
+	if ((ret = isop(s, i)) > 0)
 	{
-		if ((rep = chk(s, rep + 1, len)) > 0 && (rep = chk(s, rep + 1, len)) > 0)
+		if ((rep = chk(s, rep + 1, len)) > 0 &&
+				(rep = chk(s, rep + 1, len)) > 0)
 			return (rep);
 		return (rep);
 	}
