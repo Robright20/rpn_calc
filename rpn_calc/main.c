@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:10:46 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 23:10:28 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/09 00:18:52 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		main(int ac, char **av)
 			return (0);
 		}
 		s = build(av[1], len);
-		printf("rpn_calc %d\n", rpn_calc(s, 0, len, &ret));
+		printf("%d\n", rpn_calc(s, 0, len, &ret));
 		free(s);
 	}
 	return (0);
