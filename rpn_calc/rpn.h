@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:01:32 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 09:29:44 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 14:00:15 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ char	*build(char *s, int	len);
 int		ft_strlen(char *s);
 int		isop(char *s, int i);
 int		isp(char *s, int i);
-int		rpn_calc(char *s, int i, int len);
+int		rpn_calc(char *s, int i, int len, int *ans, char c);
 #endif
