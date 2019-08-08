@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 19:24:02 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 14:00:00 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 19:05:05 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,49 +22,43 @@ int		ft_atoi(char *str, int i, int rep)
 	free(s);
 	return (k);
 }
-void	op(char c, int k, int *ans)
+int		op(char c, int rep1, int rep2)
 {
 	if (c == '-')
-		*ans -= k;
+		return (rep1 - rep2);
 	else if (c == '+')
-		*ans += k;
+		return (rep1 + rep2);
 	else if (c == '*')
-		*ans *= k;
+		return (rep1 * rep2);
 	else if (c == '/')
-		*ans /= k;
+		return (rep1 / rep2);
 	else if (c == '%')
-		*ans %= k;
-	printf("ans inside %d\n", *ans);
+		return (rep1 % rep2);
+	return (0);
 }
 
-int		calc(char *s, int rep, int i, int *ans, char c)
+int		calc(int rep1, char c, int rep2)
 {
-	int			k;
-	static char	sign;
+	int		rep;
 
-	k = ft_atoi(s, i, rep);
-	if (i - 2 == 0)
-		*ans = k;
-	else
-		op(sign, k, ans);
-	sign = c;
-	printf("sign [%c]\t k [%d]\n", c, k);
+	rep = op(c, rep1, rep2);
+	printf("rep1 %d\trep2 %d\tc [%c]\t rep [%d]\n", rep1, rep2, c, rep);
 	return (rep);
 }
 
-int		rpn_calc(char *s, int i, int len, int *ans, char c)
+int		rpn_calc(char *s, int i, int len, int *ret)
 {
 	int		rep;
 	
 	if (i >= len)
 		return (i);
-	if ((rep = isop(s, i)) > 0)
+	if ((*ret = isop(s, i)) > 0)
 	{
-		if ((rep = rpn_calc(s, rep + 1, len, ans, s[i])) > 0 && isp(s, rep))
-				return (rpn_calc(s, rep + 1, len, ans, s[i]));
-		return (-1);
+		rep = rpn_calc(s, *ret + 1, len, ret);
+		printf("ret + 1 %d\n", *ret + 1);
+		return (calc(rpn_calc(s, *ret + 1, len, ret), s[i], rep));
 	}
-	else if (i > 1 && (rep = isnum(s, i)) > 0)
-		return (calc(s, rep, i, ans, c));
-	return (-1);
+	else if (i > 1 && (*ret = isnum(s, i)) > 0)
+		return (ft_atoi(s, i, *ret));
+	return (0);
 }
