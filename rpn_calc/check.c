@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 19:22:35 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 09:25:05 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 09:29:07 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		check(int ac, char **av)
 
 	if (ac != 2)
 		return (0);
-	len = ft_strlen(str);
-	s = build(av[1]);
+	len = ft_strlen(av[1]);
+	s = build(av[1], len);
 	return (chk(s, 0, ft_strlen(s)));
 }
