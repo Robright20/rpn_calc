@@ -6,7 +6,7 @@
 /*   By: fokrober <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 18:10:46 by fokrober          #+#    #+#             */
-/*   Updated: 2019/08/08 19:05:08 by fokrober         ###   ########.fr       */
+/*   Updated: 2019/08/08 23:10:28 by fokrober         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int		main(int ac, char **av)
 	int		ret;
 	char	*s;
 
-	if (check(ac, av) <= 0)
-		printf("Error");
+	if ((ret = check(ac, av)) < 0)
+		printf("Error\n");
 	else
 	{
 		len = ft_strlen(av[1]);
+		if (ret != len)
+		{
+			printf("Error\n");
+			return (0);
+		}
 		s = build(av[1], len);
-		printf("%d\n", rpn_calc(s, 0, len, &ret));
-		printf("ret %d\n", ret);
+		printf("rpn_calc %d\n", rpn_calc(s, 0, len, &ret));
 		free(s);
 	}
 	return (0);
