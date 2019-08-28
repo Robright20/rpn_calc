@@ -57,9 +57,13 @@ int	chk(char *s, int i, int len)
 
 int	check(int ac, char **av, int *len, char **s)
 {
+	char	*tmp;
+
 	if (ac != 2)
 		return (-1);
-	*len = ft_strlen(av[1]);
-	*s = build(av[1], *len);
+	tmp = ft_split(av[1]);
+	*len = ft_strlen(tmp);
+	*s = build(tmp, *len);
+	free(tmp);
 	return (chk(*s, 0, ft_strlen(*s)));
 }

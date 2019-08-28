@@ -43,3 +43,55 @@ int	isp(char *s, int i)
 		return (isnum(s, i) > i || isop(s, i) > i);
 	return (0);
 }
+
+int	count_nonsp(char *s)
+{
+	int	nonsp_len;
+	int	i;
+	int	j;
+	
+	i = 0;
+	j = 0;
+	nonsp_len = 0;
+	while (s[i])
+	{
+		while (s[i] != ' ' && s[i])
+		{
+			nonsp_len++;
+			i++;
+			if (s[i] == ' ')
+				j++;
+		}
+		if (!s[i])
+			break ;
+		i++;
+	}
+	return (nonsp_len + j);
+}
+
+char	*ft_split(char *s)
+{
+	char	*str;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	str = (char *)malloc(count_nonsp(s) + 1);
+	while (s[i])
+	{
+		while (s[i] != ' ' && s[i])
+		{
+			str[j++] = s[i++];
+			if (s[i] == ' ')
+				str[j++] = ' ';
+		}
+		if (!s[i])
+			break ;
+		i++;
+	}
+	if (str[j - 1] == ' ')
+		j--;
+	str[j] = s[i];
+	return (str);
+}

@@ -22,4 +22,5 @@ int	ft_strlen(char *s);
 int	isop(char *s, int i);
 int	isp(char *s, int i);
 int	rpn_calc(char *s, int i, int len, int *ret);
+char	*ft_split(char *s);
 #endif
