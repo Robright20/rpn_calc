@@ -12,10 +12,10 @@
 
 #include "rpn.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	int		len;
-	int		ret;
+	int	len;
+	int	ret;
 	char	*s;
 
 	if ((ret = check(ac, av)) < 0)
@@ -29,7 +29,9 @@ int		main(int ac, char **av)
 			return (0);
 		}
 		s = build(av[1], len);
-		printf("%d\n", rpn_calc(s, 0, len, &ret));
+		len = rpn_calc(s, 0, len, &ret);
+		if (ret > 0)
+			printf("%d\n", len);
 		free(s);
 	}
 	return (0);

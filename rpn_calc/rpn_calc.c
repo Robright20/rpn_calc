@@ -12,10 +12,10 @@
 
 #include "rpn.h"
 
-int		ft_atoi(char *str, int i, int rep)
+int	ft_atoi(char *str, int i, int rep)
 {
 	char	*s;
-	int		k;
+	int	k;
 
 	s = build(&str[i], rep - i);
 	k = atoi(s);
@@ -23,9 +23,9 @@ int		ft_atoi(char *str, int i, int rep)
 	return (k);
 }
 
-int		op(char c, int rep1, int rep2)
+int	calc(int rep1, char c, int rep2, int *ret)
 {
-	int		rep;
+	int	rep;
 
 	if (c == '-')
 		return (rep1 - rep2);
@@ -38,30 +38,23 @@ int		op(char c, int rep1, int rep2)
 		if (rep2 != 0)
 			return ((rep = (c == '/') ? rep1 / rep2 : rep1 % rep2));
 		printf("Error\n");
+		*ret = -1;
 	}
-	return (0);
+	return (-1);
 }
 
-int		calc(int rep1, char c, int rep2)
+int	rpn_calc(char *s, int i, int len, int *ret)
 {
-	int		rep;
-
-	rep = op(c, rep1, rep2);
-	return (rep);
-}
-
-int		rpn_calc(char *s, int i, int len, int *ret)
-{
-	int		rep;
+	int	rep;
 
 	if (i >= len)
 		return (i);
 	if ((*ret = isop(s, i)) > 0)
 	{
 		rep = rpn_calc(s, *ret + 1, len, ret);
-		return (calc(rpn_calc(s, *ret + 1, len, ret), s[i], rep));
+		return (calc(rpn_calc(s, *ret + 1, len, ret), s[i], rep, ret));
 	}
 	else if (i > 1 && (*ret = isnum(s, i)) > 0)
 		return (ft_atoi(s, i, *ret));
-	return (0);
+	return (-1);
 }
