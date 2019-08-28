@@ -15,11 +15,11 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-int		check(int ac, char **av);
-int		isnum(char *s, int i);
-char	*build(char *s, int	len);
-int		ft_strlen(char *s);
-int		isop(char *s, int i);
-int		isp(char *s, int i);
-int		rpn_calc(char *s, int i, int len, int *ret);
+int	check(int ac, char **av, int *len);
+int	isnum(char *s, int i);
+char	*build(char *s, int len);
+int	ft_strlen(char *s);
+int	isop(char *s, int i);
+int	isp(char *s, int i);
+int	rpn_calc(char *s, int i, int len, int *ret);
 #endif

@@ -18,11 +18,10 @@ int	main(int ac, char **av)
 	int	ret;
 	char	*s;
 
-	if ((ret = check(ac, av)) < 0)
+	if ((ret = check(ac, av, &len)) < 0)
 		printf("Error\n");
 	else
 	{
-		len = ft_strlen(av[1]);
 		if (ret != len)
 		{
 			printf("Error\n");

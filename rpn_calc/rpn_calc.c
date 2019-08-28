@@ -12,18 +12,18 @@
 
 #include "rpn.h"
 
-int	ft_atoi(char *str, int i, int rep)
+int	ft_atoi(char *str, int start, int end)
 {
 	char	*s;
 	int	k;
 
-	s = build(&str[i], rep - i);
+	s = build(&str[start], end - start);
 	k = atoi(s);
 	free(s);
 	return (k);
 }
 
-int	calc(int rep1, char c, int rep2, int *ret)
+int	calc(int rep1, char c, int rep2, int *err)
 {
 	int	rep;
 
@@ -38,21 +38,23 @@ int	calc(int rep1, char c, int rep2, int *ret)
 		if (rep2 != 0)
 			return ((rep = (c == '/') ? rep1 / rep2 : rep1 % rep2));
 		printf("Error\n");
-		*ret = -1;
+		*err = -1;
 	}
 	return (-1);
 }
 
 int	rpn_calc(char *s, int i, int len, int *ret)
 {
-	int	rep;
+	int	rep1;
+	int	rep2;
 
 	if (i >= len)
 		return (i);
 	if ((*ret = isop(s, i)) > 0)
 	{
-		rep = rpn_calc(s, *ret + 1, len, ret);
-		return (calc(rpn_calc(s, *ret + 1, len, ret), s[i], rep, ret));
+		rep1 = rpn_calc(s, *ret + 1, len, ret);
+		rep2 = rpn_calc(s, *ret + 1, len, ret);
+		return (calc(rep1, s[i], rep2, ret));
 	}
 	else if (i > 1 && (*ret = isnum(s, i)) > 0)
 		return (ft_atoi(s, i, *ret));

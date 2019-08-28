@@ -12,7 +12,7 @@
 
 #include "rpn.h"
 
-int		ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ int		ft_strlen(char *s)
 char	*build(char *str, int len)
 {
 	char	*s;
-	int		i;
+	int	i;
 
 	if (!(s = (char *)malloc(len + 1)))
 		return (NULL);
@@ -37,7 +37,7 @@ char	*build(char *str, int len)
 	return (s);
 }
 
-int		isp(char *s, int i)
+int	isp(char *s, int i)
 {
 	if (i && s[i++] == ' ')
 		return (isnum(s, i) > i || isop(s, i) > i);

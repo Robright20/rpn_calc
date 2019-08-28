@@ -12,7 +12,7 @@
 
 #include "rpn.h"
 
-int		isnum(char *s, int i)
+int	isnum(char *s, int i)
 {
 	while (s[i] >= '0' && s[i] <= '9')
 	{
@@ -25,21 +25,21 @@ int		isnum(char *s, int i)
 	return (-1);
 }
 
-int		isopchr(char c)
+int	isopchr(char c)
 {
 	return (c == '+' || c == '-' || c == '*' || c == '/' || c == '%');
 }
 
-int		isop(char *s, int i)
+int	isop(char *s, int i)
 {
 	if (isopchr(s[i++]) && isp(s, i))
 		return (i);
 	return (-1);
 }
 
-int		chk(char *s, int i, int len)
+int	chk(char *s, int i, int len)
 {
-	int		rep;
+	int	rep;
 
 	if (i >= len)
 		return (i);
@@ -55,14 +55,13 @@ int		chk(char *s, int i, int len)
 	return (-1);
 }
 
-int		check(int ac, char **av)
+int	check(int ac, char **av, int *len)
 {
 	char	*s;
-	int		len;
 
 	if (ac != 2)
 		return (-1);
-	len = ft_strlen(av[1]);
-	s = build(av[1], len);
+	*len = ft_strlen(av[1]);
+	s = build(av[1], *len);
 	return (chk(s, 0, ft_strlen(s)));
 }
