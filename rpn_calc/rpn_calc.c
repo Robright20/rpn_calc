@@ -52,8 +52,8 @@ int	rpn_calc(char *s, int i, int len, int *ret)
 		return (i);
 	if ((*ret = isop(s, i)) > 0)
 	{
-		rep1 = rpn_calc(s, *ret + 1, len, ret);
 		rep2 = rpn_calc(s, *ret + 1, len, ret);
+		rep1 = rpn_calc(s, *ret + 1, len, ret);
 		return (calc(rep1, s[i], rep2, ret));
 	}
 	else if (i > 1 && (*ret = isnum(s, i)) > 0)
