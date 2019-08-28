@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	int	ret;
 	char	*s;
 
-	if ((ret = check(ac, av, &len)) < 0)
+	if ((ret = check(ac, av, &len, &s)) < 0)
 		printf("Error\n");
 	else
 	{
@@ -27,7 +27,6 @@ int	main(int ac, char **av)
 			printf("Error\n");
 			return (0);
 		}
-		s = build(av[1], len);
 		len = rpn_calc(s, 0, len, &ret);
 		if (ret > 0)
 			printf("%d\n", len);

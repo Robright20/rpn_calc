@@ -15,7 +15,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-int	check(int ac, char **av, int *len);
+int	check(int ac, char **av, int *len, char **s);
 int	isnum(char *s, int i);
 char	*build(char *s, int len);
 int	ft_strlen(char *s);
