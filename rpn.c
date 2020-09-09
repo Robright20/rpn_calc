@@ -6,7 +6,7 @@
 /*   By: bob <fokrober@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 09:16:05 by bob               #+#    #+#             */
-/*   Updated: 2020/09/09 19:06:53 by bob              ###   ########.fr       */
+/*   Updated: 2020/09/09 22:49:45 by bob              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,11 @@ static void	getnext(t_val *prev, char *expr, int op)
 		getnext(&cur, expr + len, atoi(expr));
 		if (!is_operator(cur.sign))
 			prev->err = TRUE;
-		else if (size-- || TRUE)
-		{
-			if (!(prev->err = compute(&op, cur.op, cur.sign)))
-				getnext(prev, cur.sign + 1, op);
-		}
+		else if (size-- && (!(prev->err = compute(&op, cur.op, cur.sign))))
+			getnext(prev, cur.sign + 1, op);
 	}
+	else
+		prev->err = (*expr != 0);
 	(*expr == 0) ? prev->op = op : 0;
 }
 
