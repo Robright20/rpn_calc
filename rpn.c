@@ -6,7 +6,7 @@
 /*   By: bob <fokrober@student.1337.ma>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 09:16:05 by bob               #+#    #+#             */
-/*   Updated: 2020/09/09 22:49:45 by bob              ###   ########.fr       */
+/*   Updated: 2020/09/09 22:52:02 by bob              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,7 @@ int			main(int ac, char **av)
 
 	if (ac != 2)
 		return (printf("Error\n"));
-	cur.op = 0;
-	cur.sign = NULL;
-	cur.err = FALSE;
+	cur = (t_val){0, 0, 0};
 	result = NULL;
 	expr = check(av[1]);
 	if ((len = isnumber(expr)))
