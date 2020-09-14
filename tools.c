@@ -73,10 +73,9 @@ char	*ft_itoa(int number)
 	while (++len && number / 10)
 		number /= 10;
 	len += sign;
-	buf = malloc(len + 1);
-	buf[len] = 0;
-	if (!buf)
+	if ((buf = malloc(len + 1)))
 		return (NULL);
+	buf[len] = 0;
 	if (u_number == 0 || sign)
 		buf[0] = sign ? '-' : '0';
 	while (u_number > 0)
